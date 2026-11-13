@@ -18,7 +18,7 @@ A compact end-to-end ML assignment project that predicts final shipment delay at
 - Customs clearance delays.
 - Additional delays during the final delivery stage.
 
-The model uses only information available at the port-arrival checkpoint: route distance, departure/transit delays, port-arrival delay, congestion, weather severity, customs complexity, planned customs duration, schedule slack and transshipment count. Future actual customs and delivery timestamps are excluded from the feature set.
+The model uses only information available at the port-arrival checkpoint: route distance,  departure/transit delays,  port-arrival delay,  congestion,  weather severity,  customs complexity,  planned customs duration,  schedule slack and transshipment count. Future actual customs and delivery timestamps are excluded from the feature set.
 
 The Solution #1
 An AI-powered shipment intelligence system that performs four primary tasks:
@@ -40,25 +40,25 @@ The ML model complements this rule-based mechanism by learning nonlinear relatio
 
 ## 3. Dataset
 
-The generator creates 300 reproducible synthetic journeys (seed 42) with scheduled and actual timestamps for departure, port arrival, customs and final delivery. Congestion, weather, customs complexity, transshipments, schedule slack, recovery and stochastic disruptions affect the simulated outcomes.
+The generator creates 300 reproducible synthetic journeys (seed 42) with scheduled and actual timestamps for departure,  port arrival,   customs and final delivery.  Congestion,  weather,  customs complexity,  transshipments,  schedule slack,  recovery and stochastic disruptions affect the simulated outcomes.
 
 Synthetic data is useful for demonstrating methodology and testing code, but cannot establish real-world predictive performance.
 
 #Synthetic Data Generation Details-
 Dataset characteristics-
 
-Parameter			Implementation
-Total shipment records		300
-Random seed			42
-Route origins			5 sampled locations
-Route destinations		5 sampled locations
-Route distance			2,500–14,500 km
-Planned speed			25–36 km/h
-Congestion index		0–100
-Weather severity		0–10
-Customs complexity		1–10
-Transshipments			0–3
-Schedule slack			0–18 hours
+Parameter			                Implementation
+Total shipment records		    300
+Random seed			              42
+Route origins			            5 sampled locations
+Route destinations		        5 sampled locations
+Route distance		          	2,500–14,500 km
+Planned speed			            25–36 km/h
+Congestion index	           	0–100
+Weather severity		          0–10
+Customs complexity		        1–10
+Transshipments		          	0–3
+Schedule slack		          	0–18 hours
 Delay classification threshold  24 hours
 
 The synthetic schedule dates are distributed over a 180-day window beginning on 1 January 2025.
@@ -74,26 +74,26 @@ The dataset's final delay distribution has:
 
 Feature selection
 Selected ten input features:
-Feature	Purpose
-distance_km			Represents route distance
-departure_delay_hours		Captures departure disruption
-transit_delay_hours		Captures upstream transit delay
-port_arrival_delay_hours	Represents accumulated delay at port arrival
-port_congestion_index		Measures port congestion
-weather_severity		Represents environmental disruption
-customs_complexity		Estimates customs-processing difficulty
-planned_customs_hours		Represents planned clearance duration
-schedule_slack_hours		Represents available schedule buffer
-transshipment_count		Captures additional transfer complexity
+Feature                      	Purpose
+distance_km			              Represents route distance
+departure_delay_hours		      Captures departure disruption
+transit_delay_hours		        Captures upstream transit delay
+port_arrival_delay_hours	    Represents accumulated delay at port arrival
+port_congestion_index		      Measures port congestion
+weather_severity		          Represents environmental disruption
+customs_complexity		        Estimates customs-processing difficulty
+planned_customs_hours		      Represents planned clearance duration
+schedule_slack_hours		      Represents available schedule buffer
+transshipment_count		        Captures additional transfer complexity
 
 These features are used by both machine-learning models.
 
 Feature	Contribution direction
-High port congestion			Increases predicted delay
-High customs complexity			Increases predicted delay
-High schedule slack			Reduces predicted delay
-Severe weather				May increase predicted delay
-Additional transshipments		May increase predicted delay
+High port congestion			    Increases predicted delay
+High customs complexity		   	Increases predicted delay
+High schedule slack		      	Reduces predicted delay
+Severe weather				        May increase predicted delay
+Additional transshipments		  May increase predicted delay
 
 ## 4. Run locally
 
@@ -150,6 +150,7 @@ shipment_eta_intelligence/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+└── flowchart.png
 
 
 - `src/generate_data.py`: synthetic shipment generator.
